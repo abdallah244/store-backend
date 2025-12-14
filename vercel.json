@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "buildCommand": "cd frontend && npm ci && npm run build",
+  "builds": [{ "src": "backend/server.js", "use": "@vercel/node" }],
+  "functions": {
+    "backend/server.js": {
+      "excludeFiles": [
+        "frontend/**",
+        ".git/**",
+        "**/*.map",
+        "**/README*"
+      ],
+      "memory": 1024,
+      "maxDuration": 60
+    }
+  },
+  "routes": [
+    { "src": "/api/(.*)", "dest": "backend/server.js" },
+    { "src": "/(.*)", "dest": "backend/server.js" }
+  ]
+}
