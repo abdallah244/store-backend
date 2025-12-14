@@ -1,7 +1,6 @@
 {
   "version": 2,
   "buildCommand": "cd frontend && npm ci && npm run build",
-  "builds": [{ "src": "backend/server.js", "use": "@vercel/node" }],
   "functions": {
     "backend/server.js": {
       "excludeFiles": [
@@ -15,7 +14,7 @@
     }
   },
   "routes": [
-    { "src": "/api/(.*)", "dest": "backend/server.js" },
-    { "src": "/(.*)", "dest": "backend/server.js" }
+    { "src": "/api/(.*)", "dest": "/backend/server.js" },
+    { "src": "/(.*)", "dest": "/backend/server.js" }
   ]
 }
