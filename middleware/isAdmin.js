@@ -23,4 +23,4 @@ module.exports = async function isAdmin(req, res, next) {
     console.error("isAdmin middleware error:", err);
     res.status(500).json({ message: "Server error" });
   }
-}
+};
